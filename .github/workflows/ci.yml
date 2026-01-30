@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install Rye
+        uses: eifinger/setup-rye@v4
+      
+      - name: Install dependencies
+        run: rye sync
+      
+      - name: Lint
+        run: rye run ruff check .
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install Rye
+        uses: eifinger/setup-rye@v4
+      
+      - name: Install dependencies
+        run: rye sync
+      
+      - name: Run tests
+        run: rye run pytest
