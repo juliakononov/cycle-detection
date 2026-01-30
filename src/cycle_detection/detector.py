@@ -68,7 +68,6 @@ def has_cycle(graph: dict[int, list[int]]) -> bool:
 
     for vertex in all_vertices:
         if color[vertex] == Color.WHITE and dfs_iterative(vertex):
-                return True
+            return True
 
     return False
-

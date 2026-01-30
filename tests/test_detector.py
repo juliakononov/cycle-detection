@@ -75,6 +75,7 @@ def test_two_components_with_cycle(two_components_with_cycle):
 def test_two_components_no_cycle(two_components_no_cycle):
     assert has_cycle(two_components_no_cycle) is False
 
+
 def test_large_graph_no_cycle(large_chain):
     assert has_cycle(large_chain) is False
 
